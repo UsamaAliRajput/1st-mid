@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - QuickBite Cafe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Menu Page</h1>
+    </header>
+
+
+    <div id="menu">
+        <h3>Menu</h3>
+        <ul id="menu-list">
+       </ul>
+        <button id="add-menu-item" class="btn btn-primary">Add Menu Item</button>
+    </div>
+    
+
+    <section id="admin-features">
+        <div class="container">
+            <script>// Sample data for the menu
+                let menuItems = [
+                    { name: "Coffee", description: "Freshly brewed coffee" },
+                    { name: "Croissant", description: "Flaky and buttery" },
+                    { name: "Sandwich", description: "Delicious sandwiches" }
+                ];
+                
+                // Function to update the menu list
+                function updateMenuList() {
+                    const menuList = document.getElementById("menu-list");
+                    menuList.innerHTML = "";
+                
+                    menuItems.forEach((item, index) => {
+                        const li = document.createElement("li");
+                        li.innerHTML = `<strong>${item.name}</strong> - ${item.description}
+                            <button class="btn btn-info btn-sm" onclick="editMenuItem(${index})">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="removeMenuItem(${index})">Remove</button>`;
+                        menuList.appendChild(li);
+                    });
+                }
+                
+                // Function to add a new menu item
+                function addMenuItem() {
+                    const newItemName = prompt("Enter the name of the new menu item:");
+                    if (newItemName) {
+                        const newItemDescription = prompt("Enter the description of the new menu item:");
+                        if (newItemDescription) {
+                            menuItems.push({ name: newItemName, description: newItemDescription });
+                            updateMenuList();
+                        }
+                    }
+                }
+                
+                // Function to edit a menu item
+                function editMenuItem(index) {
+                    const menuItem = menuItems[index];
+                    const newName = prompt("Edit the name:", menuItem.name);
+                    const newDescription = prompt("Edit the description:", menuItem.description);
+                
+                    if (newName !== null && newDescription !== null) {
+                        menuItem.name = newName;
+                        menuItem.description = newDescription;
+                        updateMenuList();
+                    }
+                }
+                
+                // Function to remove a menu item
+                function removeMenuItem(index) {
+                    menuItems.splice(index, 1);
+                    updateMenuList();
+                }
+                
+                // Add event listeners
+                document.getElementById("add-menu-item").addEventListener("click", addMenuItem);
+                
+                // Initialize the menu list
+                updateMenuList();
+                </script>
+        </div>
+    </section>
+
+    <script>
+
+    const loginForm = document.getElementById("login-form");
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const password = document.getElementById("password").value;
+        if (password === "admin") {
+            // Redirect to admin features or enable them
+            window.location.href = "admin.html";
+        } else {
+            alert("Incorrect password. Please try again.");
+        }
+    });
+
+		
+    </script>
+</body>
+</html>

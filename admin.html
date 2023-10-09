@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - QuickBite Cafe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Page</h1>
+    </header>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.html">Admin</a>
+        <a class="nav-link" href="index.html">Home</a>
+    </nav>
+
+    <section id="password-form">
+        <div class="container">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </section>
+
+
+    
+    <script>
+
+	// Password verification
+const loginForm = document.getElementById("login-form");
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const password = document.getElementById("password").value;
+    if (password === "admin") {
+        window.location.href = "menu.html";
+    } else {
+        alert("Incorrect password. Please try again.");
+    }
+});
+
+		
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - QuickBite Cafe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Menu Page</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.html">Admin</a>
+        <a class="nav-link" href="index.html">Home</a>
+    </nav>
+
+
+    <br><br>
+    <div id="menu">
+        <h3>Menu</h3>
+        <ul id="menu-list">
+            <li><strong>Coffee</strong> - Freshly brewed coffee</li>
+            <li><strong>Croissant</strong> - Flaky and buttery</li>
+            <li><strong>Sandwich</strong> - Delicious sandwiches</li>
+        </ul>
+        <button class="btn btn-primary">Place an Order</button>
+    </div>
+
+
+        <script>
+
+    const loginForm = document.getElementById("login-form");
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const password = document.getElementById("password").value;
+        if (password === "admin") {
+            // Redirect to admin features or enable them
+            window.location.href = "admin.html";
+        } else {
+            alert("Incorrect password. Please try again.");
+        }
+    });
+
+		
+    </script>
+</body>
+</html>
